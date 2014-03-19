@@ -1,0 +1,32 @@
+# Managed by puppet
+
+if [ -z "$PS1" ]; then
+    # Probably non interactive shell..
+    return 0
+fi
+
+# \[\e[16;31;44m\]PROD\[\e[0m\] [\[\e[0;35m\]\u\[\e[0m\]@\[\e[1;37m\]\h\[\e[0m\] \w]\\$
+
+
+
+# \[\e[1;31;44m\]
+
+# Set user colors
+if [ "$USER" = "root" ]; then
+	userColor="\[\e[0<% @root_color.each do |val| -%><%= val %><% end -%>m\]"
+else
+	userColor="\[\e[0<% @user_color.each do |val| -%><%= val %><% end -%>m\]"
+fi
+
+<% if @profile_text %>profile="\[\e[0<% @profile_color.each do |val| -%><%= val %><% end -%>m\]<%= scope.lookupvar('profile_text') %>\[\e[0m\] "<% end %>
+
+server_color="\[\e[0<% @server_color.each do |val| -%><%= val %><% end -%>m\]"
+
+
+# Set prompt
+if [ $TERM != "dumb" ]; then
+	PS1="$profile[$userColor\u\[\e[0m\]@$server_color\h\[\e[0m\] \W]\\$ "
+fi
+
+# Remove variables from the environment
+unset userColor profile serverColor
