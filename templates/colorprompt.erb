@@ -5,12 +5,6 @@ if [ -z "$PS1" ]; then
     return 0
 fi
 
-# \[\e[16;31;44m\]PROD\[\e[0m\] [\[\e[0;35m\]\u\[\e[0m\]@\[\e[1;37m\]\h\[\e[0m\] \w]\\$
-
-
-
-# \[\e[1;31;44m\]
-
 # Set user colors
 if [ "$USER" = "root" ]; then
 	userColor="\[\e[0<% @root_color.each do |val| -%><%= val %><% end -%>m\]"
