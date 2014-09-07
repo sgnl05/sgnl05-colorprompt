@@ -25,11 +25,11 @@ include 'colorprompt'
 class { 'colorprompt':
    default_usercolor => ['white'],
    custom_usercolors => {
-     root => ['red']
-   }
-   server_color      => ['cyan']
-   env_name          => ['DEV']
-   env_name          => ['white', 'bg_cyan']
+     root => ['red'],
+   },
+   server_color      => ['cyan'],
+   env_name          => ['DEV'],
+   env_name          => ['white', 'bg_cyan'],
 }
 ```
 
