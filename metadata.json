@@ -2,7 +2,7 @@
   "name": "sgnl05-colorprompt",
   "version": "1.1.0",
   "author": "sgnl05",
-  "summary": "Puppet module for pulling the latest development version of Racktables",
+  "summary": "Puppet module for adding colors to your bash prompt",
   "license": "Apache 2.0",
   "source": "git://github.com/sgnl05/sgnl05-colorprompt.git",
   "project_page": "https://github.com/sgnl05/sgnl05-colorprompt",
