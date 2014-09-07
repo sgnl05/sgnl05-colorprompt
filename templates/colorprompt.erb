@@ -1,26 +1,62 @@
-# Managed by puppet
+# Managed by Puppet
 
 if [ -z "$PS1" ]; then
-    # Probably non interactive shell..
-    return 0
+# Probably non-interactive shell..
+  return 0
 fi
 
-# Set user colors
-if [ "$USER" = "root" ]; then
-	userColor="\[\e[0<% @root_color.each do |val| -%><%= val %><% end -%>m\]"
+black=";30"
+red=";31"
+green=";32"
+yellow=";33"
+blue=";34"
+magenta=";35"
+cyan=";36"
+white=";37"
+
+bg_black=";40"
+bg_red=";41"
+bg_green=";42"
+bg_yellow=";43"
+bg_blue=";44"
+bg_magenta=";45"
+bg_cyan=";46"
+bg_white=";47"
+
+bright=";1"
+faint=";2"
+underline=";4"
+blink=";5"
+
+<% if @custom_usercolors.count == 1 -%>
+  <%- @custom_usercolors.each do |user, colors| -%>
+if [ "$USER" = "<%= user %>" ]; then
+  userColor="\[\e[0<% colors.each do |color| -%>${<%= color %>}<% end -%>m\]"
 else
-	userColor="\[\e[0<% @user_color.each do |val| -%><%= val %><% end -%>m\]"
+  <% end %>
+  userColor="\[\e[0<% @default_usercolor.each do |color| -%>${<%= color %>}<% end -%>m\]"
+<% end %>
+
+
+<% if @custom_usercolors.count > 1 -%>
+  <%- @custom_usercolors.each do |user, colors| -%>
+if [ "$USER" = "<%= user %>" ]; then
+	userColor="\[\e[0<% colors.each do |color| -%>${<%= color %>}<% end -%>m\]"
+el<%- end -%>se
+        userColor="\[\e[0<% @default_usercolor.each do |color| -%>${<%= color %>}<% end -%>m\]"
+<%- end -%>
 fi
 
-<% if @profile_text %>profile="\[\e[0<% @profile_color.each do |val| -%><%= val %><% end -%>m\]<%= scope.lookupvar('profile_text') %>\[\e[0m\] "<% end %>
+serverColor="\[\e[0<% @server_color.each do |color| -%>${<%= color %>}<% end -%>m\]"
 
-server_color="\[\e[0<% @server_color.each do |val| -%><%= val %><% end -%>m\]"
-
+<% if @env_name and ! @env_name.empty? -%>env="\[\e[0<% @env_color.each do |color| -%>${<%= color %>}<%- end -%>m\]<%= @env_name %>\[\e[0m\] "<% end %>
 
 # Set prompt
 if [ $TERM != "dumb" ]; then
-	PS1="$profile[$userColor\u\[\e[0m\]@$server_color\h\[\e[0m\] \W]\\$ "
+  PS1="${env}[$userColor\u\[\e[0m\]@$serverColor\h\[\e[0m\] \W]\\$ "
 fi
 
 # Remove variables from the environment
-unset userColor profile serverColor
+unset userColor serverColor blue red green yellow blue magenta cyan white
+unset bg_black bg_red bg_green bg_yellow bg_blue bg_magenta bg_cyan bg_white
+unset bright faint underline blink
