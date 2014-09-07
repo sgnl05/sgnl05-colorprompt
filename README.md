@@ -29,7 +29,7 @@ class { 'colorprompt':
    },
    server_color      => ['cyan'],
    env_name          => ['DEV'],
-   env_name          => ['white', 'bg_cyan'],
+   env_colors        => ['white', 'bg_cyan'],
 }
 ```
 
