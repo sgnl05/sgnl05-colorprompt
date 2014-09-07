@@ -43,7 +43,7 @@ class { 'colorprompt':
 * cyan
 * white
 
-A background color can also be defnied by using 'bg_<color>'
+A background color can also be defnied by using 'bg_(color)'
 
 ##Reference
 
