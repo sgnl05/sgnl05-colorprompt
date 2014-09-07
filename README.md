@@ -19,16 +19,17 @@ All interaction with the colorprompt module can do be done through the main colo
 include 'colorprompt'
 ```
 
-###I want a prompt for my production servers with different colors for regular and root user.
+###I want a prompt for my development servers with customised colors.
 
 ```puppet
 class { 'colorprompt':
-   default_usercolor => ['blue'],
+   default_usercolor => ['white'],
    custom_usercolors => {
      root => ['red']
    }
-   server_color      => ['red']
-   env_name          => ['white', 'bg_red']
+   server_color      => ['cyan']
+   env_name          => ['DEV']
+   env_name          => ['white', 'bg_cyan']
 }
 ```
 
