@@ -28,29 +28,18 @@ faint=";2"
 underline=";4"
 blink=";5"
 
-<% if @custom_usercolors.count == 1 -%>
-  <%- @custom_usercolors.each do |user, colors| -%>
+<%- @custom_usercolors.each do |user, colors| -%>
 if [ "$USER" = "<%= user %>" ]; then
-  userColor="\[\e[0<% colors.each do |color| -%>${<%= color %>}<% end -%>m\]"
-else
-  <% end %>
-  userColor="\[\e[0<% @default_usercolor.each do |color| -%>${<%= color %>}<% end -%>m\]"
-<% end %>
-
-
-<% if @custom_usercolors.count > 1 -%>
-  <%- @custom_usercolors.each do |user, colors| -%>
-if [ "$USER" = "<%= user %>" ]; then
-	userColor="\[\e[0<% colors.each do |color| -%>${<%= color %>}<% end -%>m\]"
+  userColor="\[\e[0<%- if colors.is_a?(Array) -%><% colors.each do |color| -%>${<%= color %>}<% end -%><%- else -%>${<%= colors %>}<%- end -%>m\]"
 el<%- end -%>se
-        userColor="\[\e[0<% @default_usercolor.each do |color| -%>${<%= color %>}<% end -%>m\]"
-<%- end -%>
+  userColor="\[\e[0<%- if @default_usercolor.is_a?(Array) -%><% @default_usercolor.each do |color| -%>${<%= color %>}<% end -%><%- else -%>${<%= @default_usercolor %>}<%- end -%>m\]"
 fi
-
-serverColor="\[\e[0<% @server_color.each do |color| -%>${<%= color %>}<% end -%>m\]"
-
-<% if @env_name and ! @env_name.empty? -%>env="\[\e[0<% @env_color.each do |color| -%>${<%= color %>}<%- end -%>m\]<%= @env_name %>\[\e[0m\] "<% end %>
-
+<% if @server_color and ! @server_color.empty? %>
+serverColor="\[\e[0<%- if @server_color.is_a?(Array) -%><%- @server_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @server_color %>}<%- end -%>m\]"
+<% end -%>
+<% if @env_name and ! @env_name.empty? %>
+env="\[\e[0<%- if @env_color.is_a?(Array) -%><% @env_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @env_color %>}<%- end -%>m\]<%= @env_name %>\[\e[0m\] "
+<% end %>
 # Set prompt
 if [ $TERM != "dumb" ]; then
   PS1="${env}[$userColor\u\[\e[0m\]@$serverColor\h\[\e[0m\] \W]\\$ "

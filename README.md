@@ -19,16 +19,16 @@ All interaction with the colorprompt module can do be done through the main colo
 include 'colorprompt'
 ```
 
-###I want a prompt for my development servers with customised colors.
+###I want a prompt for my development server with customised colors.
 
 ```puppet
 class { 'colorprompt':
-   default_usercolor => ['white'],
+   default_usercolor => 'white',
    custom_usercolors => {
-     root => ['red'],
+     root => 'red',
    },
-   server_color      => ['cyan'],
-   env_name          => ['DEV'],
+   server_color      => 'cyan',
+   env_name          => 'DEV',
    env_colors        => ['white', 'bg_cyan'],
 }
 ```
@@ -44,7 +44,7 @@ class { 'colorprompt':
 * cyan
 * white
 
-A background color can also be defnied by using 'bg_(color)'
+A background color can also be defnied by using 'bg_(color)'. Foreground and background colors can be combined by using arrays instead of strings (see 'env_colors' in example above).
 
 ##Reference
 
@@ -62,23 +62,23 @@ A background color can also be defnied by using 'bg_(color)'
 
 ####`default_usercolor`
 
-Array. Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'. Defaults to ['cyan'].
+String or array. Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'. Defaults to 'cyan'.
 
 ####`custom_usercolors`
 
-Hash. Sets the color for spesific users. Defaults to { 'root' => ['magenta'] }
+Hash. Sets the color for spesific users. Defaults to { 'root' => 'magenta' }
 
 ####`server_color`
 
-Array. Sets the color for the server name. Defaults to ['white']
+String or array. Sets the color for the server name. Defaults to 'white'.
 
 ####`env_name`
 
-String. Names an environment tag. Examples: 'PROD', 'QA', 'TEST', 'DEV'. Default is not set. 
+String: Names an environment tag. Examples: 'PROD', 'QA', 'TEST', 'DEV'. Default is not set. 
 
 ####`env_color`
 
-Array. Sets the color for of the environment tag. Default is not set. 
+String or array. Sets the color for of the environment tag. Default is not set. 
 
 ####`enable`
 
@@ -90,8 +90,8 @@ This module has been built on and tested against Puppet 3.0 and higher.
 
 The module has been tested on:
 * RedHat Enterprise Linux 5/6
-* CentOS 5/6
-* Ubuntu 12.04
-* Debian 7
+* CentOS 5/6/7
+* Ubuntu 12.04 & 14.04
+* Debian 6/77
 
 Ubuntu and Debian needs modification to /etc/skel/.bashrc and existing user .bashrc files (comment out PS1 variables).
