@@ -33,7 +33,7 @@ class { 'colorprompt':
 }
 ```
 
-###Great! What colors are available
+###Great! What colors are available?
 
 * black
 * red
