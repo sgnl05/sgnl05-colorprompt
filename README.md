@@ -92,6 +92,6 @@ The module has been tested on:
 * RedHat Enterprise Linux 5/6
 * CentOS 5/6/7
 * Ubuntu 12.04 & 14.04
-* Debian 6/77
+* Debian 6/7
 
 Ubuntu and Debian needs modification to /etc/skel/.bashrc and existing user .bashrc files (comment out PS1 variables).
