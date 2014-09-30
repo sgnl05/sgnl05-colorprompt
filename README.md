@@ -44,7 +44,7 @@ class { 'colorprompt':
 * cyan
 * white
 
-A background color can also be defnied by using 'bg_(color)'. Foreground and background colors can be combined by using arrays instead of strings (see 'env_colors' in example above).
+A background color can also be defnied by using 'bg_(color)'. Foreground and background colors can be combined by using arrays instead of strings (see 'env_color' in example above).
 
 ##Reference
 
