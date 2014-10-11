@@ -95,3 +95,9 @@ The module has been tested on:
 * Debian 6/7
 
 Ubuntu and Debian needs modification to /etc/skel/.bashrc and existing user .bashrc files (comment out PS1 variables).
+
+## Development
+
+###Contributing
+
+Please use the issue tracker (https://github.com/sgnl05/sgnl05-colorprompt/issues) for any type of contribution. 
