@@ -21,10 +21,6 @@ class colorprompt (
   $enable            = $colorprompt::params::enable,
 ) inherits colorprompt::params {
 
-  validate_hash($custom_usercolors)
-  validate_string($env_name)
-  validate_bool($enable)
-
   class { '::colorprompt::template': }
 
 }
