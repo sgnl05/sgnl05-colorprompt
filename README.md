@@ -19,7 +19,7 @@ All interaction with the colorprompt module can do be done through the main colo
 include 'colorprompt'
 ```
 
-###I want a prompt for my development server with customised colors.
+###I want a prompt for my production server with customised colors.
 
 ```puppet
 class { 'colorprompt':
