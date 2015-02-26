@@ -28,7 +28,7 @@ class { 'colorprompt':
    server_color      => 'red',
    default_usercolor => 'cyan',
    custom_usercolors => {
-     root => 'magenta',
+     'root' => 'magenta',
    },
 }
 ```
