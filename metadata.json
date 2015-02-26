@@ -9,19 +9,19 @@
   "issues_url": "https://github.com/sgnl05/sgnl05-colorprompt/issues",
   "operatingsystem_support": [
     {
-      "operatingsystem": "RedHat",
+      "operatingsystem": "RedHat"
     },
     {
-      "operatingsystem": "CentOS",
+      "operatingsystem": "CentOS"
     },
     {
-      "operatingsystem": "OracleLinux",
+      "operatingsystem": "OracleLinux"
     },
    {
-      "operatingsystem": "Debian",
+      "operatingsystem": "Debian"
     },
    {
-      "operatingsystem": "Ubuntu",
+      "operatingsystem": "Ubuntu"
     }
  ],
   "requirements": [
