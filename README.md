@@ -33,6 +33,10 @@ class { 'colorprompt':
 }
 ```
 
+###What does the example above look like?
+
+![prompt](https://raw.githubusercontent.com/sgnl05/sgnl05-colorprompt/master/example.png)
+
 ###Great! What colors are available?
 
 * black
