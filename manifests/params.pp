@@ -5,7 +5,7 @@ class colorprompt::params {
 
     Linux: {
       $default_usercolor = 'cyan'
-      $custom_usercolors = { 'root' => 'magenta' }
+      $custom_usercolors = undef
       $server_color      = 'white'
       $env_name          = undef
       $env_color         = undef

@@ -66,27 +66,33 @@ A background color can also be defined by using 'bg_(color)'. Foreground and bac
 
 ####`default_usercolor`
 
-String or array. Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'. Defaults to 'cyan'.
+String or array. Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'.
+Defaults to 'cyan'.
 
 ####`custom_usercolors`
 
-Hash. Sets the color for spesific users. Defaults to { 'root' => 'magenta' }
+Hash. Sets the color for spesific users. Example: custom_usercolors => { 'apache' => 'blue', 'tomcat' => 'yellow' }
+Default is not set.
 
 ####`server_color`
 
-String or array. Sets the color for the server name. Defaults to 'white'.
+String or array. Sets the color for the server name. 
+Defaults to 'white'.
 
 ####`env_name`
 
-String: Names an environment tag. Examples: 'PROD', 'QA', 'TEST', 'DEV'. Default is not set. 
+String: Names an environment tag. Examples: 'PROD', 'QA', 'TEST', 'DEV'.
+Default is not set. 
 
 ####`env_color`
 
-String or array. Sets the color for of the environment tag. Default is not set. 
+String or array. Sets the color for of the environment tag.
+Default is not set. 
 
 ####`enable`
 
-Boolean. Set this to false to uninstall colorprompt. Defaults to 'true'.
+Boolean. Set this to false to uninstall colorprompt.
+Defaults to 'true'.
 
 ##Limitations
 
