@@ -23,13 +23,13 @@ include 'colorprompt'
 
 ```puppet
 class { 'colorprompt':
-   default_usercolor => 'white',
+   env_name          => 'PROD',
+   env_color         => ['white', 'bg_red'],
+   server_color      => 'red',
+   default_usercolor => 'cyan',
    custom_usercolors => {
-     root => 'red',
+     root => 'magenta',
    },
-   server_color      => 'cyan',
-   env_name          => 'DEV',
-   env_color         => ['white', 'bg_cyan'],
 }
 ```
 
