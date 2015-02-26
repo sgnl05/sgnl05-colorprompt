@@ -1,7 +1,18 @@
+# == Class: colorprompt::template
 #
-class colorprompt::template inherits colorprompt {
+# This class handles the colorprompt.sh file
+#
+# === Parameters
+#
+# === Variables
+#
+# === Examples
+#
+#  class { 'colorprompt::template': }
+#
+class colorprompt::template {
 
-  if $enable == true {
+  if $colorprompt::enable == true {
     $ensure = 'file'
   } else {
     $ensure = 'absent'

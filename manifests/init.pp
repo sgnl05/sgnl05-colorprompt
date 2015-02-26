@@ -9,7 +9,8 @@
 # Requires:
 #
 # Sample Usage:
-#  include colorprompt
+#
+#  class { '::colorprompt': }
 #
 class colorprompt (
   $default_usercolor = $colorprompt::params::default_usercolor,
