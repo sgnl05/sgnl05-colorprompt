@@ -48,7 +48,7 @@ class { 'colorprompt':
 * cyan
 * white
 
-A background color can also be defined by using 'bg_(color)'. Foreground and background colors can be combined by using arrays instead of strings (see 'env_color' in example above).
+A background color can also be defined by using `bg_(color)`. Foreground and background colors can be combined by using arrays instead of strings (see `env_color` in example above).
 
 ##Reference
 
@@ -56,13 +56,14 @@ A background color can also be defined by using 'bg_(color)'. Foreground and bac
 
 ####Public Classes
 
-* colorprompt: Main class, includes all other classes.
-
-####Private Classes
-
-* colorprompt::template: Handles the /etc/profile.d/colorprompt.sh file.
+* colorprompt: Main and only class.
 
 ###Parameters
+
+####`ensure`
+
+Boolean. Ensure if file /etc/profile.d/colorprompt.sh is present or absent.
+Defaults to present.
 
 ####`default_usercolor`
 
@@ -72,27 +73,22 @@ Defaults to 'cyan'.
 ####`custom_usercolors`
 
 Hash. Sets the color for spesific users. Example: custom_usercolors => { 'apache' => 'blue', 'tomcat' => 'yellow' }
-Default is not set.
+Default is { 'root' => 'magenta' }
 
 ####`server_color`
 
 String or array. Sets the color for the server name. 
-Defaults to 'white'.
+Defaults to unset.
 
 ####`env_name`
 
 String: Names an environment tag. Examples: 'PROD', 'QA', 'TEST', 'DEV'.
-Default is not set. 
+Defaults to unset.
 
 ####`env_color`
 
 String or array. Sets the color for of the environment tag.
-Default is not set. 
-
-####`enable`
-
-Boolean. Set this to false to uninstall colorprompt.
-Defaults to 'true'.
+Defaults to unset
 
 ##Limitations
 
