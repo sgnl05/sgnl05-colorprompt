@@ -1,7 +1,5 @@
 #colorprompt
 
-####Table of Contents
-
 ##Overview
 
 The colorprompt module. Colors your bash prompt.
