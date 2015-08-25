@@ -5,11 +5,11 @@
 The colorprompt module. Colors your bash prompt.
 
 ##Module Description
-The colorprompt module creates /etc/profile.d/colorprompt.sh, which sets a colored prompt. Different colors can be set for (all and spesific) users, servername and environment tag.
+The colorprompt module creates /etc/profile.d/colorprompt.sh, which sets a colored prompt. Different colors can be set for (all and specific) users, server name and environment tag.
 
 ##Usage
 
-All interaction with the colorprompt module can do be done through the main colorprompt class.
+All interaction with the colorprompt module can be done through the main colorprompt class.
 
 ###I just want a colored prompt, what's the minimum I need?
 
@@ -65,12 +65,12 @@ Defaults to present.
 
 ####`default_usercolor`
 
-String or array. Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'.
+String or array. Sets the color for all users. Specific user colors can be overrided by 'custom_usercolors'.
 Defaults to 'cyan'.
 
 ####`custom_usercolors`
 
-Hash. Sets the color for spesific users. Example: custom_usercolors => { 'apache' => 'blue', 'tomcat' => 'yellow' }
+Hash. Sets the color for specific users. Example: custom_usercolors => { 'apache' => 'blue', 'tomcat' => 'yellow' }
 Default is { 'root' => 'magenta' }
 
 ####`server_color`
@@ -90,7 +90,7 @@ Defaults to unset
 
 ##Limitations
 
-This module has been built on and tested against Puppet 3.0 and higher.
+This module has been tested against Puppet 3.0 and higher.
 
 The module has been tested on:
 * RedHat Enterprise Linux 5/6
@@ -98,7 +98,7 @@ The module has been tested on:
 * Ubuntu 12.04 & 14.04
 * Debian 6/7
 
-Ubuntu and Debian needs modification to /etc/skel/.bashrc and existing user .bashrc files (comment out PS1 variables).
+Ubuntu and Debian need modification to /etc/skel/.bashrc and existing user .bashrc files (comment out PS1 variables).
 
 ## Development
 
