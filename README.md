@@ -93,8 +93,7 @@ Defaults to unset
 This module has been tested against Puppet 3.0 and higher.
 
 The module has been tested on:
-* RedHat Enterprise Linux 5/6
-* CentOS 5/6/7
+* RedHat & CentOS 5/6/7
 * Ubuntu 12.04 & 14.04
 * Debian 6/7
 
