@@ -105,18 +105,18 @@ class colorprompt (
 
   if $modify_skel {
     exec { 'modify_skel':
-      command     => 'sed -i \'/^if \[ "\$color_prompt" = yes \]; then/,/fi/s/^/#/\' /etc/skel/.bashrc',   
+      command     => 'sed -i \'/^if \[ "\$color_prompt" = yes \]; then/,/fi/s/^/#/\' /etc/skel/.bashrc',
       path        => '/bin:/usr/bin:/sbin:/usr/sbin',
-      refreshonly => true
+      refreshonly => true,
       subscribe   => File['colorprompt.sh'],
     }
   }
 
   if $modify_root {
     exec { 'modify_root':
-      command     => 'sed -i \'/^if \[ "\$color_prompt" = yes \]; then/,/fi/s/^/#/\' /root/.bashrc',                 
-      path        => '/bin:/usr/bin:/sbin:/usr/sbin',                                                                    
-      refreshonly => true                                                                                                
+      command     => 'sed -i \'/^if \[ "\$color_prompt" = yes \]; then/,/fi/s/^/#/\' /root/.bashrc',
+      path        => '/bin:/usr/bin:/sbin:/usr/sbin',
+      refreshonly => true,
       subscribe   => File['colorprompt.sh'], 
   }
 
