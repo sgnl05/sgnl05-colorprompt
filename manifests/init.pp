@@ -89,7 +89,7 @@ class colorprompt (
     $path,
   )
 
- validate_bool(
+  validate_bool(
     $modify_skel,
     $modify_root
   )
@@ -117,7 +117,7 @@ class colorprompt (
       command     => 'sed -i \'/^if \[ "\$color_prompt" = yes \]; then/,/fi/s/^/#/\' /root/.bashrc',
       path        => '/bin:/usr/bin:/sbin:/usr/sbin',
       refreshonly => true,
-      subscribe   => File['colorprompt.sh'], 
+      subscribe   => File['colorprompt.sh'],
     }
   }
 
