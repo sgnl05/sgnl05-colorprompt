@@ -18,7 +18,7 @@ class colorprompt::params {
 
     'Debian': {
       $modify_skel = true
-      $modify_skel = true
+      $modify_root = true
     }
 
   }
