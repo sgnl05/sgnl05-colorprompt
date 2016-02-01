@@ -21,6 +21,10 @@ class colorprompt::params {
       $modify_root = true
     }
 
+    default: {
+      fail("Unsupported osfamily: ${::osfamily}")
+    }
+
   }
 
 }
