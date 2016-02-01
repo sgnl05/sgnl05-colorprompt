@@ -82,6 +82,18 @@ class colorprompt (
   $modify_root       = $colorprompt::params::modify_root,
 ) inherits colorprompt::params {
 
+  validate_re($ensure, '^(present|absent)$',
+    "${ensure} is not supported for ensure. Allowed values are 'present' and 'absent'.")
+
+  validate_absolute_path(
+    $path,
+  )
+
+ validate_bool(
+    $modify_skel,
+    $modify_root
+  )
+
   file { 'colorprompt.sh':
     ensure  => $ensure,
     path    => $path,
