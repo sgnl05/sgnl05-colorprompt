@@ -118,6 +118,7 @@ class colorprompt (
       path        => '/bin:/usr/bin:/sbin:/usr/sbin',
       refreshonly => true,
       subscribe   => File['colorprompt.sh'], 
+    }
   }
 
 }
