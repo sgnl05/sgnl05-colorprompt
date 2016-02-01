@@ -21,4 +21,6 @@ class colorprompt::params {
       $modify_skel = true
     }
 
+  }
+
 }
