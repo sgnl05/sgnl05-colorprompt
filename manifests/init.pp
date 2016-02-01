@@ -56,32 +56,22 @@
 # Copyright 2014-2015 Gjermund Jensvoll
 #
 class colorprompt (
-  $ensure            = present,
-  $default_usercolor = 'cyan',
-  $custom_usercolors = { 'root' => 'magenta' },
-  $server_color      = undef,
-  $env_name          = undef,
-  $env_color         = undef,
-) {
+  $ensure            = $colorprompt::params::ensure,
+  $default_usercolor = $colorprompt::params::default_usercolor,
+  $custom_usercolors = $colorprompt::params::custom_usercolors,
+  $server_color      = $colorprompt::params::server_color,
+  $env_name          = $colorprompt::params::env_name,
+  $env_color         = $colorprompt::params::env_color,
+  $modify_skel       = $colorprompt::params::modify_skel,
+  $modify_root       = $colorprompt::params::modify_root,
+) inherits colorprompt::params {
 
-  case $::kernel {
-
-    'Linux': {
-
-      file { '/etc/profile.d/colorprompt.sh':
-        ensure  => $ensure,
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0644',
-        content => template('colorprompt/colorprompt.erb'),
-      }
-
-    }
-
-    default: {
-      fail("The ${module_name} module is not supported on ${::kernel}.")
-    }
-
+  file { '/etc/profile.d/colorprompt.sh':
+    ensure  => $ensure,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('colorprompt/colorprompt.erb'),
   }
 
 }
