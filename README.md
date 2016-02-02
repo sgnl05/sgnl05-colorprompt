@@ -60,7 +60,7 @@ A background color can also be defined by using `bg_(color)`. Foreground and bac
 
 ####`ensure`
 
-Boolean. Ensure if file /etc/profile.d/colorprompt.sh is present or absent.
+String. Ensure if file /etc/profile.d/colorprompt.sh is present or absent.
 Defaults to present.
 
 ####`default_usercolor`
@@ -87,6 +87,16 @@ Defaults to unset.
 
 String or array. Sets the color for of the environment tag.
 Defaults to unset
+
+####`modify_skel`
+
+Boolean. Comments out PS1 variables in /etc/skel/.bashrc
+Defaults to true on osfamily 'Debian'
+
+####`modify_root`
+
+Boolean. Comments out PS1 variables in /root/.bashrc
+Defaults to true on osfamily 'Debian'
 
 ##Limitations
 
