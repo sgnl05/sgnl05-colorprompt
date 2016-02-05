@@ -107,7 +107,7 @@ The module has been tested on:
 * Ubuntu 12.04 & 14.04
 * Debian 6/7
 
-Ubuntu and Debian need modification to existing user .bashrc files (comment out PS1 variables).
+Ubuntu and Debian need modification to existing user ~/.bashrc files (comment out PS1 variables).
 
 ## Development
 
