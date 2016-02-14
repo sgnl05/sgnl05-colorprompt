@@ -88,15 +88,21 @@ Defaults to unset.
 String or array. Sets the color for of the environment tag.
 Defaults to unset
 
+####`prompt`                                                                                                                                                                                                 
+                                                                                                                                                                                                                
+String. Sets the final PS1 variable. This is an advanced setting, and should probably be
+left untouched unless you know what you're doing. :)
+Default varies with osfamily.
+
 ####`modify_skel`
 
 Boolean. Comments out PS1 variables in /etc/skel/.bashrc
-Defaults to true on osfamily 'Debian'
+Default varies with osfamily.
 
 ####`modify_root`
 
 Boolean. Comments out PS1 variables in /root/.bashrc
-Defaults to true on osfamily 'Debian'
+Default varies wiht osfamily
 
 ##Limitations
 
@@ -105,7 +111,7 @@ This module has been tested against Puppet 3.0 and higher.
 The module has been tested on:
 * RedHat & CentOS 5/6/7
 * Ubuntu 12.04 & 14.04
-* Debian 6/7
+* Debian 6/7/8
 
 Ubuntu and Debian need modification to existing user ~/.bashrc files (comment out PS1 variables).
 

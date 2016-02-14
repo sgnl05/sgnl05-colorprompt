@@ -39,6 +39,13 @@
 #   Type: string or array
 #   Default: undef
 #
+# [*prompt*]
+#   Sets the final $PS1 variable. Use ${env}, ${userColor} and ${serverColor}
+#   Type: string
+#   Default:
+#   '${env}[${userColor}\u\[\e[0m\]@${serverColor}\h\[\e[0m\] \w]\\$ ' on RedHat
+#   '${env}[${userColor}\u\[\e[0m\]@${serverColor}\h\[\e[0m\] \W]\\$ ' on Debian
+#
 # [*modify_skel*]
 #   Comments out PS1 variables in /etc/skel/.bashrc on Debian distributions
 #   Type: boolean
@@ -78,6 +85,7 @@ class colorprompt (
   $server_color      = $colorprompt::params::server_color,
   $env_name          = $colorprompt::params::env_name,
   $env_color         = $colorprompt::params::env_color,
+  $prompt            = $colorprompt::params::prompt,
   $modify_skel       = $colorprompt::params::modify_skel,
   $modify_root       = $colorprompt::params::modify_root,
 ) inherits colorprompt::params {
@@ -87,6 +95,10 @@ class colorprompt (
 
   validate_absolute_path(
     $path,
+  )
+
+  validate_string(
+    $prompt
   )
 
   validate_bool(

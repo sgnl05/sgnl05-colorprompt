@@ -12,11 +12,13 @@ class colorprompt::params {
   case $::osfamily {
 
     'RedHat': {
+      $prompt      = '${env}[${userColor}\u\[\e[0m\]@${serverColor}\h\[\e[0m\] \W]\\$ ' 
       $modify_skel = false
       $modify_root = false
     }
 
     'Debian': {
+      $prompt      = '${env}[${userColor}\u\[\e[0m\]@${serverColor}\h\[\e[0m\] \w]\\$ '
       $modify_skel = true
       $modify_root = true
     }
