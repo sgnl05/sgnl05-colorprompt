@@ -18,6 +18,9 @@
       "operatingsystem": "OracleLinux"
     },
     {
+      "operatingsystem": "Fedora"
+    },
+    {
       "operatingsystem": "Debian"
     },
     {

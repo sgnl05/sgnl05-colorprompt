@@ -112,6 +112,7 @@ The module has been tested on:
 * RedHat & CentOS 5/6/7
 * Ubuntu 12.04 & 14.04
 * Debian 6/7/8
+* Fedora 22/23
 
 Ubuntu and Debian need modification to existing user ~/.bashrc files (comment out PS1 variables).
 
