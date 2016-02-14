@@ -88,10 +88,9 @@ Defaults to unset.
 String or array. Sets the color for of the environment tag.
 Defaults to unset
 
-####`prompt`                                                                                                                                                                                                 
-                                                                                                                                                                                                                
-String. Sets the final PS1 variable. This is an advanced setting, and should probably be
-left untouched unless you know what you're doing. :)
+####`prompt`
+
+String. Sets the final PS1 variable. This is an advanced setting, and should probably be left untouched unless you know what you're doing. :)
 Default varies with osfamily.
 
 ####`modify_skel`
