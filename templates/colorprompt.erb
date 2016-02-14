@@ -45,7 +45,7 @@ env="\[\e[0<%- if @env_color.is_a?(Array) -%><% @env_color.each do |color| -%>${
 <% end %>
 # Set prompt
 if [ $TERM != "dumb" ]; then
-PS1="<%= @prompt %>"
+  PS1="<%= @prompt %>"
 fi
 
 # Remove variables from the environment
