@@ -101,7 +101,7 @@ Default varies with osfamily.
 ####`modify_root`
 
 Boolean. Comments out PS1 variables in /root/.bashrc
-Default varies wiht osfamily
+Default varies with osfamily
 
 ##Limitations
 
