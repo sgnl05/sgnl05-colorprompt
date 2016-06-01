@@ -1,6 +1,6 @@
 {
   "name": "sgnl05-colorprompt",
-  "version": "2.2.0",
+  "version": "2.1.1",
   "author": "sgnl05",
   "summary": "Add colors to your bash prompt",
   "license": "Apache-2.0",
@@ -28,6 +28,10 @@
     }
   ],
   "requirements": [
+    {
+      "version_requirement": ">= 3.3.0 < 5.0.0",
+      "name": "pe"
+    },
     {
       "version_requirement": ">=3.0.0 < 5.0.0",
       "name": "puppet"
