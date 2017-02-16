@@ -1,82 +1,19 @@
-# == Class: colorprompt
+# colorprompt
 #
-# This module adds colors to your bash prompt.
+# Main class and only class.
 #
-# === Parameters
-#
-# [*ensure*]
-#   Ensure if present or absent.
-#   Type: string
-#   Default: present
-#
-# [*path*]
-#   Path to colorprompt.sh file
-#   Type: string
-#   Default: /etc/profile.d/colorprompt.sh
-#
-# [*default_usercolor*]
-#   Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'. Defaults to 'cyan'.
-#   Type: string or array
-#   Default: 'cyan'
-#
-# [*custom_usercolors*]
-#   Sets the color for spesific users.
-#   Type: hash
-#   Default: { 'root' => 'magenta' }
-#
-# [*server_color*]
-#   Ensure if present or absent.
-#   Type: string or array
-#   Default: undef
-#
-# [*env_name*]
-#   Ensure if present or absent.
-#   Type: string
-#   Default: undef
-#
-# [*env_color*]
-#   Ensure if present or absent.
-#   Type: string or array
-#   Default: undef
-#
-# [*prompt*]
-#   Sets the final $PS1 variable. Use ${env}, ${userColor} and ${serverColor}
-#   Type: string
-#   Default:
-#   '${env}[${userColor}\u\[\e[0m\]@${serverColor}\h\[\e[0m\] \w]\\$ ' on RedHat
-#   '${env}[${userColor}\u\[\e[0m\]@${serverColor}\h\[\e[0m\] \W]\\$ ' on Debian
-#
-# [*modify_skel*]
-#   Comments out PS1 variables in /etc/skel/.bashrc on Debian distributions
-#   Type: boolean
-#   Default: true on Debian, false on RedHat
-#
-# [*modify_root*]
-#   Comments out PS1 variables in /root/.bashrc on Debian distributions
-#   Type: boolean
-#   Default: true on Debian, false on RedHat
-#
-# === Examples
-#
-#  class { 'colorprompt':
-#     ensure            => present,
-#     env_name          => 'PROD',
-#     env_color         => ['white', 'bg_red'],
-#     server_color      => 'red',
-#     default_usercolor => 'cyan',
-#     custom_usercolors => {
-#       'root' => 'magenta',
-#     },
-#  }
-#
-# === Authors
-#
-# Gjermund Jensvoll <gjerjens@gmail.com>
-#
-# === Copyright
-#
-# Copyright 2014-2015 Gjermund Jensvoll
-#
+# @param ensure [String] Whether to install colorprompt scipt. Values: 'present', 'absent'. Default value: 'present'.
+# @param path [Stdlib] Stdlib::Absolutepath. Specifies path for the colorprompt script. Default value: '/etc/profile.d/colorprompt.sh'.
+# @param default_usercolor [Optional Variant[Array[String], String]] Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'. Default value: 'cyan'.
+# @param custom_usercolors [Optional Hash[String, [Variant[Array[String], String]]]] Sets the color for spesific users. Default value: '{ 'root' => 'magenta' }'.
+# @param server_color [Optional Variant[Array[String], String]] Sets the server name color. Default value: undef.
+# @param env_name [Optional String] Sets an environment name. Default value: undef.
+# @param env_color [Optional Array[String]] Sets the color for the environment tag. Default value: undef.
+# @param prompt [String] Sets the final $PS1 variable. Use ${env}, ${userColor} and ${serverColor} for set environment, user colors and server color. Default value: varies by operating system.
+# @param modify_skel [Boolean] Comments out PS1 variables in /etc/skel/.bashrc on Debian distributions. Default value: varies by operating system.
+# @param modify_root [Boolean] Comments out PS1 variables in /root/.bashrc on Debian distributions. Default value: varies by operating system.
+# @param ansi Sets the ansi codes for styles and colors. Default value: See data/common.yaml
+
 class colorprompt (
   Enum['present', 'absent'] $ensure,
   Stdlib::Absolutepath $path,
