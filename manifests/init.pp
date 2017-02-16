@@ -78,33 +78,18 @@
 # Copyright 2014-2015 Gjermund Jensvoll
 #
 class colorprompt (
-  $ensure            = $colorprompt::params::ensure,
-  $path              = $colorprompt::params::path,
-  $default_usercolor = $colorprompt::params::default_usercolor,
-  $custom_usercolors = $colorprompt::params::custom_usercolors,
-  $server_color      = $colorprompt::params::server_color,
-  $env_name          = $colorprompt::params::env_name,
-  $env_color         = $colorprompt::params::env_color,
-  $prompt            = $colorprompt::params::prompt,
-  $modify_skel       = $colorprompt::params::modify_skel,
-  $modify_root       = $colorprompt::params::modify_root,
-) inherits colorprompt::params {
-
-  validate_re($ensure, '^(present|absent)$',
-    "${ensure} is not supported for ensure. Allowed values are 'present' and 'absent'.")
-
-  validate_absolute_path(
-    $path,
-  )
-
-  validate_string(
-    $prompt
-  )
-
-  validate_bool(
-    $modify_skel,
-    $modify_root
-  )
+  Enum['present', 'absent'] $ensure,
+  Stdlib::Absolutepath $path,
+  Optional[Variant[Array[String], String]] $default_usercolor,
+  Optional[Hash[String, [Variant[Array[String], String]]]] $custom_usercolors,
+  Optional[Variant[Array[String], String]] $server_color,
+  Optional[String] $env_name,
+  Optional[Array[String]] $env_color,
+  String $prompt,
+  Boolean $modify_skel,
+  Boolean $modify_root,
+  Hash[String, Integer] $ansi,
+) {
 
   file { 'colorprompt.sh':
     ensure  => $ensure,

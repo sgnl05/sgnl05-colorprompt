@@ -1,0 +1,31 @@
+---
+colorprompt::ensure: present
+colorprompt::path: '/etc/profile.d/colorprompt.sh'
+colorprompt::default_usercolor: 'cyan'
+colorprompt::custom_usercolors:
+        'root': 'magenta'
+colorprompt::server_color: ~
+colorprompt::env_name: ~
+colorprompt::env_color: ~
+colorprompt::ansi:
+  reset: 0
+  bright: 1
+  faint: 2
+  underline: 4
+  blink: 5
+  black: 30
+  red: 31
+  green: 32
+  yellow: 33
+  blue: 34
+  magenta: 35
+  cyan: 36
+  white: 37
+  bg_black: 40
+  bg_red: 41
+  bg_green: 42
+  bg_yellow: 43
+  bg_blue: 44
+  bg_magenta: 45
+  bg_cyan: 46
+  bg_white: 47

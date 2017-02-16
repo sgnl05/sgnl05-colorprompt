@@ -1,0 +1,3 @@
+colorprompt::prompt: '${env}[${userColor}\u\[\e[0m\]@${serverColor}\h\[\e[0m\] \W]\\$ '
+colorprompt::modify_skel: false
+colorprompt::modify_root: false
