@@ -13,6 +13,7 @@ blue=";34"
 magenta=";35"
 cyan=";36"
 white=";37"
+gray="1;30"
 
 bg_black=";40"
 bg_red=";41"
@@ -39,6 +40,9 @@ fi
 
 <% if @server_color and ! @server_color.empty? %>
 serverColor="\[\e[0<%- if @server_color.is_a?(Array) -%><%- @server_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @server_color %>}<%- end -%>m\]"
+<% end -%>
+<% if @domain_color and ! @domain_color.empty? %>
+domainColor="\[\e[0<%- if @domain_color.is_a?(Array) -%><%- @domain_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @domain_color %>}<%- end -%>m\]"
 <% end -%>
 <% if @env_name and ! @env_name.empty? %>
 env="\[\e[0<%- if @env_color.is_a?(Array) -%><% @env_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @env_color %>}<%- end -%>m\]<%= @env_name %>\[\e[0m\] "
