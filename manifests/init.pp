@@ -165,10 +165,8 @@ class colorprompt (
   if empty($custom_usercolors) {
     fail('Value of parameter $custom_usercolors must be not empty!')
   } else {
-    if ( versioncmp($::puppetversion, '4.0.0') >= 0 ) {
-      $custom_usercolors.each | $user, $colors | {
-        validate_colors($colors, "Values of \$custom_usercolors not correct for user '${user}'! Value")
-      }
+    $custom_usercolors.each | $user, $colors | {
+      validate_colors($colors, "Values of \$custom_usercolors not correct for user '${user}'! Value")
     }
   }
 
@@ -231,16 +229,8 @@ class colorprompt (
   }
 
   if $git_prompt {
-    unless defined(Package[$bash_completion_package]) {
-      package { $bash_completion_package:
-        ensure => present,
-      }
-    }
-    unless defined(Package[$git_package]) {
-      package { $git_package:
-        ensure => present,
-      }
-    }
+    $packages = [$bash_completion_package, $git_package]
+    ensure_packages($packages)
   }
   file { "${::colorprompt::params::bash_completion_dir}/git-prompt":
     ensure  => $git_prompt ? {
