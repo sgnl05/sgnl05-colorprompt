@@ -5,7 +5,7 @@
 # @param ensure [String] Whether to install colorprompt scipt. Values: 'present', 'absent'. Default value: 'present'.
 # @param path [Stdlib] Stdlib::Absolutepath. Specifies path for the colorprompt script. Default value: '/etc/profile.d/colorprompt.sh'.
 # @param default_usercolor [Optional Variant[Array[String], String]] Sets the color for all users. Spesific user colors can be overrided by 'custom_usercolors'. Default value: 'cyan'.
-# @param custom_usercolors [Optional Hash[String, [Variant[Array[String], String]]]] Sets the color for spesific users. Default value: '{ 'root' => 'magenta' }'.
+# @param custom_usercolors [Optional Hash] Sets the color for spesific users. Default value: '{ 'root' => 'magenta' }'.
 # @param server_color [Optional Variant[Array[String], String]] Sets the server name color. Default value: undef.
 # @param env_name [Optional String] Sets an environment name. Default value: undef.
 # @param env_color [Optional Array[String]] Sets the color for the environment tag. Default value: undef.
@@ -18,7 +18,7 @@ class colorprompt (
   Enum['present', 'absent'] $ensure,
   Stdlib::Absolutepath $path,
   Optional[Variant[Array[String], String]] $default_usercolor,
-  Optional[Hash[String, [Variant[Array[String], String]]]] $custom_usercolors,
+  Optional[Hash] $custom_usercolors,
   Optional[Variant[Array[String], String]] $server_color,
   Optional[String] $env_name,
   Optional[Array[String]] $env_color,
