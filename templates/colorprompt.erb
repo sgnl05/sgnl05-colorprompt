@@ -40,6 +40,9 @@ fi
 <% if @server_color and ! @server_color.empty? %>
 serverColor="\[\e[0<%- if @server_color.is_a?(Array) -%><%- @server_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @server_color %>}<%- end -%>m\]"
 <% end -%>
+<% if @path_color and ! @path_color.empty? %>
+pathColor="\[\e[0<%- if @path_color.is_a?(Array) -%><%- @path_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @path_color %>}<%- end -%>m\]"
+<% end -%>
 <% if @env_name and ! @env_name.empty? %>
 env="\[\e[0<%- if @env_color.is_a?(Array) -%><% @env_color.each do |color| -%>${<%= color %>}<%- end -%><%- else -%>${<%= @env_color %>}<%- end -%>m\]<%= @env_name %>\[\e[0m\] "
 <% end %>
