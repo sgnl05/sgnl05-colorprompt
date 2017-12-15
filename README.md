@@ -24,6 +24,7 @@ class { 'colorprompt':
    env_name          => 'PROD',
    env_color         => ['white', 'bg_red'],
    server_color      => 'red',
+   path_color        => 'yellow',
    default_usercolor => 'cyan',
    custom_usercolors => {
      'root' => 'magenta',
@@ -85,7 +86,12 @@ Defaults to unset.
 
 ####`env_color`
 
-String or array. Sets the color for of the environment tag.
+String or array. Sets the color of the environment tag.
+Defaults to unset
+
+####`path_color`
+
+String or array. Sets the color of the path text.
 Defaults to unset
 
 ####`prompt`

@@ -1,6 +1,6 @@
 {
   "name": "sgnl05-colorprompt",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "author": "sgnl05",
   "summary": "Add colors to your bash prompt",
   "license": "Apache-2.0",

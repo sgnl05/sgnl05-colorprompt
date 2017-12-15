@@ -81,6 +81,7 @@ class colorprompt (
   $ensure            = $colorprompt::params::ensure,
   $path              = $colorprompt::params::path,
   $default_usercolor = $colorprompt::params::default_usercolor,
+  $path_color        = $colorprompt::params::path_color,
   $custom_usercolors = $colorprompt::params::custom_usercolors,
   $server_color      = $colorprompt::params::server_color,
   $env_name          = $colorprompt::params::env_name,
