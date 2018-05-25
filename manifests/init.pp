@@ -78,34 +78,17 @@
 # Copyright 2014-2015 Gjermund Jensvoll
 #
 class colorprompt (
-  $ensure            = $colorprompt::params::ensure,
-  $path              = $colorprompt::params::path,
-  $default_usercolor = $colorprompt::params::default_usercolor,
-  $custom_usercolors = $colorprompt::params::custom_usercolors,
-  $server_color      = $colorprompt::params::server_color,
-  $env_name          = $colorprompt::params::env_name,
-  $env_color         = $colorprompt::params::env_color,
-  $prompt            = $colorprompt::params::prompt,
-  $modify_skel       = $colorprompt::params::modify_skel,
-  $modify_root       = $colorprompt::params::modify_root,
+  Enum['absent', 'present']       $ensure            = $colorprompt::params::ensure,
+  Stdlib::Absolutepath            $path              = $colorprompt::params::path,
+  String                          $default_usercolor = $colorprompt::params::default_usercolor,
+  Hash                            $custom_usercolors = $colorprompt::params::custom_usercolors,
+  Optional[Variant[Array,String]] $server_color      = $colorprompt::params::server_color,
+  String                          $env_name          = $colorprompt::params::env_name,
+  Optional[Variant[Array,String]] $env_color         = $colorprompt::params::env_color,
+  Optional[String]                $prompt            = $colorprompt::params::prompt,
+  Boolean                         $modify_skel       = $colorprompt::params::modify_skel,
+  Boolean                         $modify_root       = $colorprompt::params::modify_root,
 ) inherits colorprompt::params {
-
-  validate_re($ensure, '^(present|absent)$',
-    "${ensure} is not supported for ensure. Allowed values are 'present' and 'absent'.")
-
-  validate_absolute_path(
-    $path,
-  )
-
-  validate_string(
-    $prompt
-  )
-
-  validate_bool(
-    $modify_skel,
-    $modify_root
-  )
-
   file { 'colorprompt.sh':
     ensure  => $ensure,
     path    => $path,
