@@ -1,7 +1,7 @@
 # Default parameters
 class colorprompt::params {
 
-  $ensure            = present
+  $ensure            = 'present'
   $path              = '/etc/profile.d/colorprompt.sh'
   $default_usercolor = 'cyan'
   $custom_usercolors = { 'root' => 'magenta' }
